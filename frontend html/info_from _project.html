@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Main info from project</title> /* название вкладки в браузере */
+
+    <style>
+        /* Вся страница */
+        body {
+            background-color: #12151c;  /* тёмный фон страницы */
+            display: flex;              /* включаем flex: элементы выстраиваются по правилам ниже */
+            flex-direction: column;     /* элементы друг под другом, а не в ряд */
+            gap: 22px;                  /* расстояние между элементами */
+            justify-content: center;    /* центр по вертикали */
+            align-items: center;        /* центр по горизонтали */
+            height: 100vh;              /* высота body = вся высота окна браузера */
+            margin: 0;                  /* убираем стандартный отступ браузера по краям */
+        }
+
+        /* Заголовок */
+        h1 {
+            color: #5b8cff;             /* яркий синий, отличается от кнопок */
+            font-size: 68px;            /* размер текста, заметно больше кнопки */
+            font-family: sans-serif;    /* шрифт без засечек, как на кнопке */
+            text-align: center;         /* текст по центру */
+            margin: 0;                  /* убираем стандартный отступ заголовка */
+        }
+
+        /* Кнопка */
+   button {
+    background-color: #252c3b;
+    color: #e6e9ef;
+    border: none;
+    border-radius: 15px;
+    width: 500px;               /* ширина кнопки */
+    height: 100px;               /* высота кнопки */
+    font-size: 34px;            /* размер текста */
+    cursor: pointer;
+}
+
+        /* Кнопка, когда мышь над ней */
+        button:hover {
+            background-color: #34405a;  /* чуть светлее обычного цвета */
+        }
+    </style>
+</head>
+
+<body>
+<h1>Information about our project</h1>
+
+/* Кнопка: при клике открывает страницу structure.html (она должна лежать в той же папке) */
+<button onclick="location.href='structure.html'">Continue learning info :</button>
+</body>
+</html>
