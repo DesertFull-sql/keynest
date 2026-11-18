@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>keynest simple — учебный сервис секретов</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">keynest <span>simple</span></div>
+      <div id="user-box" class="user-box hidden">
+        <span id="who"></span>
+        <button id="logout" class="btn btn-small" type="button">Выйти</button>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <p class="note">
+        Учебная версия: данные хранятся в памяти и исчезают после перезапуска.
+        Шифрования и настоящей базы здесь нет — не вводите реальные секреты.
+      </p>
+
+      <section id="auth-screen" class="card auth">
+        <h1>Хранилище секретов</h1>
+        <p class="muted">Войдите или создайте аккаунт — пароль хранится только как хеш.</p>
+
+        <form id="auth-form">
+          <label for="username">Имя</label>
+          <input id="username" autocomplete="username" placeholder="anna" required />
+
+          <label for="password">Пароль</label>
+          <input
+            id="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="минимум 4 символа"
+            required
+          />
+
+          <div class="row">
+            <button id="auth-submit" class="btn btn-primary" type="submit">Войти</button>
+            <button id="toggle-mode" class="btn" type="button">Создать аккаунт</button>
+          </div>
+        </form>
+
+        <p id="auth-info" class="info hidden"></p>
+        <p id="auth-error" class="error hidden"></p>
+      </section>
+
+      <section id="app-screen" class="hidden">
+        <div class="grid">
+          <section class="card">
+            <h2>Проекты</h2>
+            <form id="project-form" class="inline">
+              <input id="project-name" placeholder="например, acme-api" required />
+              <button class="btn btn-primary" type="submit">Создать</button>
+            </form>
+            <ul id="projects" class="list"></ul>
+            <p id="projects-empty" class="muted empty">Пока нет проектов.</p>
+          </section>
+
+          <section class="card">
+            <h2>Секреты</h2>
+            <form id="secret-form">
+              <label for="secret-project">Проект</label>
+              <select id="secret-project" required></select>
+
+              <label for="secret-key">Ключ</label>
+              <input id="secret-key" placeholder="STRIPE_SECRET_KEY" required />
+
+              <label for="secret-value">Значение</label>
+              <input id="secret-value" placeholder="sk_live_..." required />
+
+              <button class="btn btn-primary" type="submit">Добавить секрет</button>
+            </form>
+            <ul id="secrets" class="list"></ul>
+            <p id="secrets-empty" class="muted empty">Пока нет секретов.</p>
+          </section>
+        </div>
+
+        <section class="card">
+          <h2>Журнал действий</h2>
+          <ul id="audit" class="audit"></ul>
+          <p id="audit-empty" class="muted empty">Событий пока нет.</p>
+        </section>
+      </section>
+
+      <p id="global-error" class="error hidden"></p>
+
+      <footer class="foot">keynest simple · учебный проект · данные в памяти</footer>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
